@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Егор Подорога — сценарист и продюсер</title>
+<meta name="description" content="Егор Подорога — сценарист и продюсер. Портфолио: проекты, навыки, опыт. Стиль iOS Notes + iOS 26 Liquid Glass." />
+<meta property="og:title" content="Егор Подорога — сценарист и продюсер" />
+<meta property="og:description" content="Портфолио сценариста и продюсера. Проекты, навыки, опыт. Стеклянные карточки, минимализм." />
+<meta name="theme-color" content="#0a0a0b" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --fg:#e7e7ea;
+  --muted:#a9a9b2;
+  --accent:#7dd3fc; /* можно поменять позже */
+  --glass-bg: rgba(255,255,255,.06);
+  --glass-border: rgba(255,255,255,.12);
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  background: radial-gradient(1200px 800px at 15% -5%, rgba(125,211,252,.12), transparent 60%),
+              radial-gradient(1000px 700px at 85% 15%, rgba(180,160,255,.10), transparent 60%),
+              var(--bg);
+  color: var(--fg);
+  line-height:1.6;
+}
+a{color: var(--accent); text-decoration: none}
+a:hover{text-decoration: underline}
+/* Top Nav */
+.nav{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px) saturate(140%);
+  background: linear-gradient(to bottom, rgba(10,10,11,.8), rgba(10,10,11,.4));
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{
+  margin:0 auto; max-width:1100px; padding:10px 16px; display:flex; align-items:center; gap:16px;
+}
+.brand{font-weight:700; letter-spacing:.3px}
+.grow{flex:1}
+.nav a.btn{
+  display:inline-block; padding:8px 12px; border:1px solid var(--glass-border);
+  background:var(--glass-bg); border-radius:10px; text-decoration:none; color:var(--fg)
+}
+.nav a.sel{border-color:var(--accent); color:var(--accent)}
+.nav .links a{margin:0 8px; color:var(--fg); opacity:.9}
+.nav .links a.active{color:var(--accent)}
+/* Layout */
+.wrapper{max-width:1100px; margin:0 auto; padding:24px 16px 120px}
+.section{margin:48px 0}
+.section h2{
+  font-size:clamp(26px, 4.8vw, 38px);
+  margin:0 0 16px 0; font-weight:700;
+}
+.muted{color:var(--muted)}
+/* Glass cards */
+.card{
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.hero{
+  display:grid; grid-template-columns: 120px 1fr; gap:18px; align-items:center; padding:16px;
+}
+@media (min-width:720px){
+  .hero{grid-template-columns: 160px 1fr; padding:22px}
+}
+.avatar{
+  width:100%; aspect-ratio:1/1; overflow:hidden; border-radius:14px; border:1px solid var(--glass-border);
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+.avatar img{width:100%; height:100%; object-fit:cover; filter:saturate(105%) contrast(1.02) brightness(1.02)}
+.hero h1{margin:0; font-size:clamp(24px, 5.2vw, 40px)}
+.hero .role{font-weight:600; opacity:.95}
+.hero .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+.button{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border:1px solid var(--glass-border); color:var(--fg); text-decoration:none
+}
+.button.primary{border-color:var(--accent); box-shadow: 0 0 0 1px rgba(125,211,252,.15) inset}
+/* Skills tags */
+.tags{display:flex; flex-wrap:wrap; gap:8px}
+.tag{
+  padding:6px 10px; border-radius:999px; border:1px solid var(--glass-border);
+  background: rgba(255,255,255,.05); font-size:14px
+}
+/* 3 columns lists -> stack on mobile */
+.grid-3{display:grid; gap:16px}
+@media (min-width:900px){ .grid-3{grid-template-columns: repeat(3,1fr)} }
+/* Note-like list items */
+.note{
+  padding:14px 16px; border-radius:12px; border:1px solid var(--glass-border);
+  background: rgba(255,255,255,.05);
+}
+.note ul{margin:0; padding-left:18px}
+.note li{margin:6px 0}
+/* Projects */
+.projects{display:grid; gap:14px}
+@media (min-width:760px){ .projects{grid-template-columns: repeat(2,1fr)} }
+.proj{
+  display:grid; grid-template-columns: 1fr auto; gap:10px; padding:14px; align-items:center
+}
+.proj .meta{grid-column: 1 / -1}
+.proj .title{font-weight:700}
+.proj small{color:var(--muted)}
+.thumb{
+  width:68px; height:68px; border-radius:10px; overflow:hidden; border:1px solid var(--glass-border); background:#131316
+}
+.thumb img{width:100%; height:100%; object-fit:cover}
+.proj .links{display:flex; gap:10px; margin-top:6px}
+.proj .links a{font-size:14px}
+/* Experience */
+.timeline{display:grid; gap:12px}
+.item{padding:14px 16px}
+.item .when{color:var(--muted); font-size:14px}
+/* Bottom mobile bar */
+.bottom-bar{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  display:flex; gap:8px; padding:10px 12px;
+  background: rgba(10,10,11,.75); backdrop-filter: blur(12px);
+  border-top:1px solid rgba(255,255,255,.06)
+}
+.search{flex:1; display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:12px;
+  border:1px solid var(--glass-border); background: rgba(255,255,255,.05)
+}
+.search input{
+  flex:1; background:transparent; border:0; outline:none; color:var(--fg); font-size:15px
+}
+.contact-btn{white-space:nowrap}
+/* small helpers */
+hr.sep{border:0; height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin:26px 0}
+.footer{opacity:.7; font-size:14px; margin-top:16px}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Егор Подорога</div>
+      <div class="links">
+        <a href="#about">Обо мне</a>
+        <a href="#skills">Навыки</a>
+        <a href="#projects">Проекты</a>
+        <a href="#experience">Опыт</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="grow"></div>
+      <a class="btn" href="#" id="resumeLink" download>PDF-резюме</a>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <!-- HERO -->
+    <section class="section card hero" id="hero">
+      <div class="avatar">
+        <img src="URA_2103.jpg" alt="Егор Подорога">
+      </div>
+      <div>
+        <h1>Егор Подорога</h1>
+        <div class="role">Сценарист · Продюсер</div>
+        <p class="muted">Комедия и драмеди как ядро. Могу в sci‑fi триллер и сказки. Работаю с редактурой, девелопментом и организацией производства. Умею использовать ИИ как редактора и соавтора.</p>
+        <div class="cta">
+          <a class="button primary" href="#" id="ctaWrite">Написать</a>
+          <a class="button" href="#" id="ctaTG">Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2>Обо мне</h2>
+      <div class="card item">
+        <p>Родом с севера. По образованию строитель‑инженер и сценарист‑продюсер. Лучше всего даются комедия и драмеди, также работаю в фантастике, драме и триллере. Есть разнообразный продюсерский опыт: прямые эфиры, шоу, образовательные курсы, реклама, постпродакшн графики, фильмы и сериалы.</p>
+        <p class="muted">Оригинал фото: <a href="https://disk.yandex.ru/i/_6MPPiWOc6ZVmg" target="_blank" rel="noopener">Yandex.Disk</a></p>
+      </div>
+      <hr class="sep">
+      <h2 id="skills">Навыки и роли</h2>
+      <div class="grid-3">
+        <div class="card note">
+          <h3>Редактор</h3>
+          <ul>
+            <li>Короткий отзыв, рерайт</li>
+            <li>Структура, сюжетная логика, вопросы</li>
+            <li>Актуализация материала: вычитка и дописывание</li>
+            <li>Оценка потенциала идеи</li>
+            <li>Коммуникация продюсер ↔ автор</li>
+          </ul>
+        </div>
+        <div class="card note">
+          <h3>Продюсер</h3>
+          <ul>
+            <li>Креатив‑концепции, форматы, саммари/структурирование</li>
+            <li>Задачи полного метра и edTech/корпоративного видео</li>
+            <li>CG и пост: пайплайн, документация, сроки, мотивация команды</li>
+            <li>Логистика съёмок, подрядчики, экспедиции</li>
+            <li>Ограниченные бюджеты, нестандартные задачи</li>
+            <li>FilmToolz, Cerebro, трекеры, базы; пакет Adobe</li>
+          </ul>
+        </div>
+        <div class="card note">
+          <h3>Сценарист</h3>
+          <ul>
+            <li>Заявки, синопсисы, поэпизодники, сценарии</li>
+            <li>Жанры: комедия, фантастика, драма, триллер</li>
+            <li>Сценарный цех СТС</li>
+            <li>Спокойно к переписыванию/kill‑идеям</li>
+          </ul>
+        </div>
+      </div>
+      <div style="height:12px"></div>
+      <div class="tags">
+        <span class="tag">#screenwriting</span>
+        <span class="tag">#storyediting</span>
+        <span class="tag">#pitching</span>
+        <span class="tag">#producing</span>
+        <span class="tag">#budgeting</span>
+        <span class="tag">#postproduction</span>
+        <span class="tag">#cerebro</span>
+        <span class="tag">#filmtoolz</span>
+        <span class="tag">#adobe</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <h2>Проекты</h2>
+      <div class="projects">
+        <article class="card proj">
+          <div class="title">Точка сингулярности</div>
+          <div class="thumb"><img src="https://dummyimage.com/300x300/121216/ffffff&text=TS" alt=""></div>
+          <div class="meta"><small>Сериал 8×50 · триллер, sci‑fi · роль: сценарист, продюсер</small></div>
+          <div class="links">
+            <a href="https://drive.google.com/drive/folders/1rLPY9RR63BfO593F5LhTMglLS2Omnhsy?usp=sharing" target="_blank" rel="noopener">материалы</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="title">Сказочный санаторий</div>
+          <div class="thumb"><img src="https://dummyimage.com/300x300/121216/ffffff&text=SS" alt=""></div>
+          <div class="meta"><small>Полный метр · семейная комедия · роль: сценарист</small></div>
+          <div class="links">
+            <a href="https://drive.google.com/drive/folders/14jfFcfyfPegPPVW5HyauNOoaANjrk9Np?usp=sharing" target="_blank" rel="noopener">материалы</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="title">Пересолила (экранизация)</div>
+          <div class="thumb"><img src="https://dummyimage.com/300x300/121216/ffffff&text=P" alt=""></div>
+          <div class="meta"><small>Короткий метр · драмеди · по Чехову</small></div>
+          <div class="links">
+            <a href="https://docs.google.com/document/d/1Notr1OZk-3xD2FqjXlPPmKMY_XhRrRm7/edit?usp=sharing&ouid=100519466800883132493&rtpof=true&sd=true" target="_blank" rel="noopener">сценарий</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="title">Мой муж — маньяк</div>
+          <div class="thumb"><img src="https://dummyimage.com/300x300/121216/ffffff&text=MMM" alt=""></div>
+          <div class="meta"><small>Сериал 8–10×35 · драмеди, детектив</small></div>
+          <div class="links">
+            <a href="https://docs.google.com/document/d/1SGAUOk_x-RIx2aRbSfqfvIcnp3p1lxmIGJ2V3yzShQQ/edit?usp=sharing" target="_blank" rel="noopener">заявка</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="title">Логлайны (подборка)</div>
+          <div class="thumb"><img src="https://dummyimage.com/300x300/121216/ffffff&text=LL" alt=""></div>
+          <div class="meta"><small>14 логлайнов в разных форматах и жанрах</small></div>
+          <div class="links">
+            <a href="https://docs.google.com/document/d/1v8K5pe8GK8RsUfho1i_n5MXIrmBLjrpOtXJB9R2T8R4/edit?usp=sharing" target="_blank" rel="noopener">читать</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section class="section" id="goals">
+      <h2>Цели и ожидания</h2>
+      <div class="card item">
+        <p>Двигаюсь в сторону сценарного девелопмента и продюсирования: этап от идеи до сценария, подготовка, подбор креативной команды. Хочу углубить навыки редактуры, работать в связке с шоураннерами и продюсерами. Ищу проекты в киноиндустрии, где можно развивать драматургию и анализировать тренды. Цель — шоураннер / креативный продюсер. Работа сценаристом также интересна, особенно ситком в сценарной комнате.</p>
+        <p class="muted">Учёба: поступаю в аспирантуру ВГИКа (искусствоведение). Ищу работу для «поддержки штанов» — редакторский отдел или сценарная комната.</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <h2>Опыт и практика</h2>
+      <div class="timeline">
+        <div class="card item">
+          <div class="title">Сценарный цех СТС</div>
+          <div class="when">2025 — н.в.</div>
+          <div>Отбор пройден. Работа в сценарной комнате над отобранными концепциями.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Сценарная практика — студия «КАРГО»</div>
+          <div class="when">2024</div>
+          <div>Синопсисы для франшизы «Любопытная Варвара» и процедурала. Один из синопсисов передан в работу.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Полнометражный фильм «Мой Север» — ассистент продюсера</div>
+          <div class="when">2026 (препродакшн/продакшн)</div>
+          <div>Логистика, администрирование, подрядчики, задачи полного метра.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Координатор CG — студия «ТРЕХМЕР»</div>
+          <div class="when">2024</div>
+          <div>Пайплайн графики, контроль материалов. Cerebro, FilmToolz.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Линейный продюсер — «Синергия»</div>
+          <div class="when">2024</div>
+          <div>Образовательный и корпоративный контент. От идеи до релиза. 20–80 параллельных проектов.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Руководитель медиа — МГСУ</div>
+          <div class="when">2023</div>
+          <div>Сценарии, съёмки, монтаж, продюсирование, ивенты.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Практика в индустрии кино</div>
+          <div class="when">2021–2024</div>
+          <div>50+ проектов: короткий метр, реклама, цифровые шоу, сериалы. Координатор, ассистент продюсера, PM, сценарист, редактор.</div>
+        </div>
+        <div class="card item">
+          <div class="title">Олимпиада «Я — профессионал»</div>
+          <div class="when">2023</div>
+          <div>Дипломант по продюсированию.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section" id="contacts">
+      <h2>Контакты</h2>
+      <div class="card item">
+        <p><strong>Email:</strong> <a href="mailto:you@example.com" id="emailLink">you@example.com</a></p>
+        <p><strong>Telegram:</strong> <a href="#" id="tgLink">@username</a></p>
+        <p><strong>Телефон:</strong> <a href="tel:+7">+7</a></p>
+        <p class="footer">© Егор Подорога. Дизайн: iOS Notes × Liquid Glass.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+      <input id="q" type="search" placeholder="Поиск по проектам…" />
+    </div>
+    <a class="button contact-btn" href="#" id="contactFast">Написать</a>
+  </div>
+
+<script>
+// Smooth active link highlight
+const links = document.querySelectorAll('.nav .links a');
+const ids = [...links].map(a=>a.getAttribute('href'));
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    const id = '#' + e.target.id;
+    links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id && e.isIntersecting));
+  });
+},{rootMargin:"-40% 0px -55% 0px", threshold:0.01});
+ids.forEach(sel=>{
+  const el = document.querySelector(sel);
+  if(el) obs.observe(el);
+});
+
+// Search filter for projects
+const q = document.getElementById('q');
+q.addEventListener('input', ()=>{
+  const term = q.value.toLowerCase().trim();
+  document.querySelectorAll('.projects .proj').forEach(card=>{
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(term) ? '' : 'none';
+  });
+});
+
+// CTAs placeholders; replace once you have real links
+const email = "you@example.com"; // TODO: заменить
+const telegram = "https://t.me/username"; // TODO: заменить
+const resume = "#"; // TODO: ссылка на PDF
+
+document.getElementById('emailLink').href = 'mailto:'+email;
+document.getElementById('emailLink').textContent = email;
+document.getElementById('ctaWrite').href = 'mailto:'+email;
+document.getElementById('contactFast').href = 'mailto:'+email;
+document.getElementById('tgLink').href = telegram;
+document.getElementById('ctaTG').href = telegram;
+document.getElementById('resumeLink').href = resume;
+</script>
+</body>
+</html>
